@@ -165,12 +165,13 @@ def loginProxy():
     options.add_argument(f'--no-pings')
     options.add_argument(f'--no-referrers')
     options.add_argument(f'--no-sandbox')
+    options.add_argument('--headless')
 
     # Utilizzo di Chrome senza detection
     driver = uc.Chrome(options=options)
 
     # Navigate to the login page
-    driver.get('https://ts8.x1.europe.travian.com/login.php')
+    driver.get('https://ts9.x1.europe.travian.com/login.php')
 
     # Wait for the login form to appear
     wait = WebDriverWait(driver, 10)
@@ -180,7 +181,7 @@ def loginProxy():
     # Fill in the login form
     username_field = form.find_element("name", "name")
     password_field = form.find_element("name", "password")
-    username_field.send_keys('enzysss123')
+    username_field.send_keys('gigio4422')
     password_field.send_keys('lol123')
     login_button = form.find_element("xpath", "//button[@type='submit']")
     login_button.click()
@@ -250,7 +251,7 @@ def loginProxy():
 def ampliaCampi(session,driver):
     for id in range(1, 19):
         for gid in range(1, 5):
-            url = f"https://ts8.x1.europe.travian.com/build.php?id={id}&gid={gid}"
+            url = f"https://ts9.x1.europe.travian.com/build.php?id={id}&gid={gid}"
             response = session.get(url)
             if response.status_code == 200:
                 try:
@@ -265,7 +266,7 @@ def ampliaCampi(session,driver):
 
 
 def startAdventure(session,driver):
-    url = "https://ts8.x1.europe.travian.com/hero/adventures"
+    url = "https://ts9.x1.europe.travian.com/hero/adventures"
     response = session.get(url)
 
     if response.status_code == 200:
