@@ -1,4 +1,10 @@
-export FLASK_APP=app.py
-export FLASK_ENV=production
 source venv/bin/activate
-flask run --host=0.0.0.0 --port=5000
+
+# avvio del server Gunicorn con 4 worker process
+gunicorn --bind 0.0.0.0:5000 --workers 4 app:app &
+
+# attesa per il completamento dell'avvio del server
+sleep 10
+
+# avvio del bot Selenium
+python bot.py
