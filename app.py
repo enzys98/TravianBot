@@ -165,7 +165,7 @@ def loginProxy():
     options.add_argument(f'--no-pings')
     options.add_argument(f'--no-referrers')
     options.add_argument(f'--no-sandbox')
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
 
     # Utilizzo di Chrome senza detection
     driver = uc.Chrome(options=options)
@@ -222,7 +222,7 @@ def loginProxy():
     for cookie in driver.get_cookies():
         session.cookies.set(cookie['name'], cookie['value'])
     while True:
-        #ampliaCampi(session, driver)
+        ampliaCampi(session, driver)
         startAdventure(session,driver)
         time.sleep(10*60)
 
@@ -292,4 +292,4 @@ def startAdventure(session,driver):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5001)
