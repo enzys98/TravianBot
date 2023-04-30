@@ -101,7 +101,7 @@ app = Flask(__name__)
 def loginProxy():
     print('sono qui')
     # Definizione dell'User-Agent
-    user_agent = UserAgent().random
+    #user_agent = UserAgent().random
 
     # Definizione delle opzioni di Chrome
     options = uc.ChromeOptions()
@@ -120,7 +120,7 @@ def loginProxy():
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--start-maximized")
     options.add_argument("--incognito")
-    options.add_argument(f"user-agent={user_agent}")
+   # options.add_argument(f"user-agent={user_agent}")
 
 
     # Utilizzo di un nuovo profilo di Chrome ogni volta
