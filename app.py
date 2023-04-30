@@ -128,7 +128,7 @@ def loginProxy():
 
     # Utilizzo di un nuovo MAC Address ogni volta
     mac_address = '00:11:22:33:44:55'
-    options.add_argument(f'--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
+    #options.add_argument(f'--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
     options.add_argument(f'--user-data-dir=/tmp/chrome-data')
     options.add_argument(f'--profile-directory=Default')
     options.add_argument(f'--disable-extensions')
