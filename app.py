@@ -99,6 +99,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def loginProxy():
+    print('sono qui')
     # Definizione dell'User-Agent
     user_agent = UserAgent().random
 
@@ -211,7 +212,7 @@ def loginProxy():
     #     else:
     #         print(f"Il {resource_name} non ha superato la capacità massima del magazzino!")
 
-    print('Login effettuato')
+    print('Login effettuatoo')
     session = requests.Session()
     for cookie in driver.get_cookies():
         session.cookies.set(cookie['name'], cookie['value'])
