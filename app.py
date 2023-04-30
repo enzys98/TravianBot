@@ -211,7 +211,7 @@ def loginProxy():
     #     else:
     #         print(f"Il {resource_name} non ha superato la capacità massima del magazzino!")
 
-
+    print('Login effettuato')
     session = requests.Session()
     for cookie in driver.get_cookies():
         session.cookies.set(cookie['name'], cookie['value'])
