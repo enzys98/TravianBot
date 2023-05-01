@@ -1,4 +1,4 @@
-source venv/bin/activate
+source ./venv/bin/activate
 
 # avvio del server Gunicorn con 4 worker process
 gunicorn --bind 0.0.0.0:5000 --workers 4 app:app &
