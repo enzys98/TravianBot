@@ -16,7 +16,6 @@ requests==2.29.0
 selenium==4.9.0
 soupsieve==2.4.1
 urllib3==1.26.5
-urllib3<1.27,>=1.21.1
 urllib3[socks]~=1.26
 waitress==2.1.2
 webencodings==0.5.1
