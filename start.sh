@@ -1,5 +1,5 @@
 # attivazione dell'ambiente virtuale
-source .venv/bin/activate
+#source .venv/bin/activate
 
 # installazione delle dipendenze
 pip install -r requirements.txt
