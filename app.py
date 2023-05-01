@@ -107,6 +107,7 @@ def loginProxy():
     options.add_argument("--disable-popup-blocking")
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-default-apps")
+    print('riga 110')
     options.add_argument("--disable-extensions-file-access-check")
     options.add_argument("--disable-web-security")
     options.add_argument("--disable-logging")
@@ -114,13 +115,14 @@ def loginProxy():
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--start-maximized")
     options.add_argument("--incognito")
+    print('riga 117')
    # options.add_argument(f"user-agent={user_agent}")
 
 
     # Utilizzo di un nuovo profilo di Chrome ogni volta
     options.add_argument('--user-data-dir=/tmp/chrome-data')
     options.add_argument('--profile-directory=Default')
-
+    print('riga 125')
     # Utilizzo di un nuovo MAC Address ogni volta
     mac_address = '00:11:22:33:44:55'
     #options.add_argument(f'--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
