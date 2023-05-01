@@ -15,7 +15,7 @@ MarkupSafe==2.1.2
 requests==2.29.0
 selenium==4.9.0
 soupsieve==2.4.1
-urllib3==1.26.5
+urllib3==1.26.0
 urllib3[socks]~=1.26
 waitress==2.1.2
 webencodings==0.5.1
