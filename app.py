@@ -157,6 +157,7 @@ def loginProxy():
     options.add_argument(f'--no-referrers')
     options.add_argument(f'--no-sandbox')
     #options.add_argument('--headless')
+    print('riga 160')
 
     # Utilizzo di Chrome senza detection
     driver = uc.Chrome(options=options)
