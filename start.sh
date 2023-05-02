@@ -1,5 +1,6 @@
 # attivazione dell'ambiente virtuale
 #source .venv/bin/activate
+export PATH=$PATH:/.chromedriver
 
 # installazione delle dipendenze
 pip install -r requirements.txt
