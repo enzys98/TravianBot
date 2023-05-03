@@ -88,7 +88,7 @@ app = Flask(__name__)
 @app.route('/')
 def loginProxy():
     print('sono qui')
-    return "sono qui"
+    
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
