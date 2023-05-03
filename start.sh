@@ -6,7 +6,7 @@ export PORT=8080
 pip install -r requirements.txt
 
 # avvio del server Gunicorn con 4 worker process
-gunicorn app:app
+gunicorn app:app -b 0.0.0.0:$PORT
 
 sleep 10
 
