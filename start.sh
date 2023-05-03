@@ -7,7 +7,7 @@ export PATH=$PATH:/.chromedriver
 pip install -r requirements.txt
 
 # avvio del server Gunicorn con 4 worker process
-gunicorn app:app -b 0.0.0.0:8000
+gunicorn app:app -b 0.0.0.0:$PORT
 
 sleep 10
 
