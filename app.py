@@ -103,8 +103,9 @@ app = Flask(__name__)
 def loginProxy():
     try:
         service = Service(ChromeDriverManager().install())
-        print(service)
+        print('servizio -> ' , service)
         driver = webdriver.Chrome(service=service)
+        print('dopo driver')
 
         # codice per eseguire il login
         driver.get('https://ts9.x1.europe.travian.com/login.php')
