@@ -102,9 +102,8 @@ app = Flask(__name__)
 @app.route('/')
 def loginProxy():
     try:
-        service = Service(ChromeDriverManager().install())
-        print('servizio -> ' , service)
-        driver = webdriver.Chrome(service=service)
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+
         print('dopo driver')
 
         # codice per eseguire il login
