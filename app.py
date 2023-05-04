@@ -6,6 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import undetected_chromedriver as uc
 from selenium.common.exceptions import *
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
 
 
 app = Flask(__name__)
