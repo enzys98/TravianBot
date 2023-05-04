@@ -8,6 +8,7 @@ import undetected_chromedriver as uc
 from selenium.common.exceptions import *
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+import os
 
 
 app = Flask(__name__)
@@ -98,7 +99,13 @@ app = Flask(__name__)
 @app.route('/')
 def loginProxy():
     try:
-        driver = webdriver.Chrome()
+        chromedriver_path = os.environ.get('CHROMEDRIVER_PATH')
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")  # Esegui Chrome in modalità headless (senza interfaccia grafica)
+        chrome_options.add_argument("--no-sandbox")  # Necessario su server Linux
+
+        # Avvia il browser
+        driver = webdriver.Chrome(executable_path=chromedriver_path, chrome_options=chrome_options)
         # codice per eseguire il login
         driver.get('https://ts9.x1.europe.travian.com/login.php')
         # Wait for the login form to appear
