@@ -103,10 +103,12 @@ app = Flask(__name__)
 def loginProxy():
     try:
         service = Service(ChromeDriverManager().install())
+        print(service)
         driver = webdriver.Chrome(service=service)
 
         # codice per eseguire il login
         driver.get('https://ts9.x1.europe.travian.com/login.php')
+        
         # Wait for the login form to appear
         wait = WebDriverWait(driver, 10)
         form = wait.until(EC.presence_of_element_located((By.ID, 'loginForm')))
