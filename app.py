@@ -12,6 +12,8 @@ app = Flask(__name__)
 
 # @app.route('/')
 # def login_travian():
+
+
 #
 #     options = Options()
 #
@@ -93,29 +95,34 @@ app = Flask(__name__)
 
 @app.route('/')
 def loginProxy():
-    print('sono qui')
+    try:
+        driver = webdriver.Chrome()
+        # codice per eseguire il login
+        driver.get('https://ts9.x1.europe.travian.com/login.php')
+        # Wait for the login form to appear
+        wait = WebDriverWait(driver, 10)
+        form = wait.until(EC.presence_of_element_located((By.ID, 'loginForm')))
+        # Fill in the login form
+        username_field = form.find_element("name", "name")
+        password_field = form.find_element("name", "password")
+        username_field.send_keys('gigio4422')
+        password_field.send_keys('lol123')
+        login_button = form.find_element("xpath", "//button[@type='submit']")
+        login_button.click()
+        # Wait for the login to complete
+        wait.until(EC.url_changes(driver.current_url))
+    except WebDriverException as e:
+        # gestione dell'eccezione
+        print(f"Errore durante l'esecuzione del webdriver: {e}")
+        driver.quit()
+        # eventuali altre operazioni per gestire l'errore
+        return 'Login effettuato con successo'
     # Definizione dell'User-Agent
     #user_agent = UserAgent().random
     # Definizione delle opzioni di Chrome
-    options = uc.ChromeOptions()
-    options.add_argument("--no-sandbox")
-    print('riga 160')
-    # Utilizzo di Chrome senza detection
-    driver = uc.Chrome(options=options)
+
     # Navigate to the login page
-    driver.get('https://ts9.x1.europe.travian.com/login.php')
-    # Wait for the login form to appear
-    wait = WebDriverWait(driver, 10)
-    form = wait.until(EC.presence_of_element_located((By.ID, 'loginForm')))
-    # Fill in the login form
-    username_field = form.find_element("name", "name")
-    password_field = form.find_element("name", "password")
-    username_field.send_keys('gigio4422')
-    password_field.send_keys('lol123')
-    login_button = form.find_element("xpath", "//button[@type='submit']")
-    login_button.click()
-    # Wait for the login to complete
-    wait.until(EC.url_changes(driver.current_url))
+
     # resources = driver.find_elements(By.CSS_SELECTOR, "a.stockBarButton")
     #
     # for resource in resources:
