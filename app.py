@@ -102,13 +102,17 @@ app = Flask(__name__)
 @app.route('/')
 def loginProxy():
     try:
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--remote-debugging-port=9222")
+        # Imposta il percorso dell'eseguibile del browser Chrome
+        chrome_path = "/opt/render/project/.render/chrome/opt/google/chrome/chrome"
 
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+        # Crea un'istanza dell'oggetto ChromeOptions per configurare il browser
+        chrome_options = webdriver.ChromeOptions()
+
+        # Imposta il percorso della cartella dei dati del browser
+        chrome_options.add_argument("--user-data-dir=/opt/render/project/.render/chrome/data")
+
+        # Crea un'istanza dell'oggetto webdriver di Chrome
+        driver = webdriver.Chrome(executable_path=chrome_path, chrome_options=chrome_options)
 
         print('dopo driver')
 
