@@ -99,13 +99,13 @@ app = Flask(__name__)
 @app.route('/')
 def loginProxy():
     try:
-        chromedriver_path = os.environ.get('CHROMEDRIVER_PATH')
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--headless")  # Esegui Chrome in modalità headless (senza interfaccia grafica)
-        chrome_options.add_argument("--no-sandbox")  # Necessario su server Linux
+        chrome_options = Options()
+        chrome_options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=chrome_options)
 
-        # Avvia il browser
-        driver = webdriver.Chrome(executable_path=chromedriver_path, chrome_options=chrome_options)
         # codice per eseguire il login
         driver.get('https://ts9.x1.europe.travian.com/login.php')
         # Wait for the login form to appear
