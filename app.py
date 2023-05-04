@@ -8,6 +8,7 @@ import undetected_chromedriver as uc
 from selenium.common.exceptions import *
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.chrome.options import Options
 import os
 
 
