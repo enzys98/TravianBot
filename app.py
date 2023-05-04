@@ -10,6 +10,8 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
 import os
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
 app = Flask(__name__)
@@ -100,13 +102,8 @@ app = Flask(__name__)
 @app.route('/')
 def loginProxy():
     try:
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--remote-debugging-port=9222")
-
-        driver = webdriver.Chrome(options=chrome_options, executable_path="/usr/bin/chromedriver")
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service)
 
         # codice per eseguire il login
         driver.get('https://ts9.x1.europe.travian.com/login.php')
